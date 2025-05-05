@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+   db: 
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: inventoryDB
+    restart: always
+    ports:
+     - "1443:1433"
+    environment:
+      SA_PASSWORD: ${DB_PASSWORD} 
+      ACCEPT_EULA: "Y"
+    volumes:
+     - ./data:/var/opt/mssql
+     
+     
