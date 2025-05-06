@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-
-namespace prueba_tec.ModalSys.DTOs
+namespace prueba_tec.NovaSys.DTOs
 {
     public class ProductDTOs
     {

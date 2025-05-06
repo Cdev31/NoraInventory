@@ -1,0 +1,25 @@
+{
+  "name": "norainventory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+      "build:css": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css "
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cdev31/NoraInventory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cdev31/NoraInventory/issues"
+  },
+  "homepage": "https://github.com/Cdev31/NoraInventory#readme",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "3"
+  }
+}

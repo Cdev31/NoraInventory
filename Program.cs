@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRouting( options => options.LowercaseUrls = true);
-builder.Services.AddDALDependencies( builder.Configuration );
 
 var app = builder.Build();
 
