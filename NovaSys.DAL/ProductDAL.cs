@@ -5,22 +5,49 @@ using prueba_tec.NovaSys.Models;
 
 namespace prueba_tec.NovaSys.DAL
 {
-    public class ProductDAL: IProductDAL
+    public class ProductDAL : IProductDAL
     {
         readonly public DbNovaContext _dbContext;
 
-        public ProductDAL(DbNovaContext dbContext){
+        public ProductDAL(DbNovaContext dbContext)
+        {
             _dbContext = dbContext;
         }
 
-        public Task<bool> create(ProductModel data)
+        public async Task<bool> create(ProductModel data)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var productExists = await _dbContext.ProductEN
+                                    .FirstOrDefaultAsync(p => p.name == data.name);
+
+                if (productExists != null) return false;
+
+                await _dbContext.ProductEN.AddAsync(data);
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public void delete(int id)
+        public async Task<bool> delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var productExists = await _dbContext.ProductEN
+                                    .FirstOrDefaultAsync(p => p.Id == id);
+
+                if (productExists == null) return false;
+
+                _dbContext.ProductEN.Remove(productExists);
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<List<ProductModel>> findAll(string state)
@@ -36,9 +63,37 @@ namespace prueba_tec.NovaSys.DAL
             }
         }
 
-        public void update(ProductModel data)
+        public async Task<ProductModel> findById(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var productExits = await _dbContext.ProductEN.FirstOrDefaultAsync(p => p.Id == Id);
+
+                return (productExits != null) ? productExits : new ProductModel();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<bool> update(ProductModel data)
+        {
+            try
+            {
+                var productExists = await _dbContext.ProductEN
+                                    .FirstOrDefaultAsync(p => p.Id == data.Id);
+
+                if (productExists == null) return false;
+
+                _dbContext.ProductEN.Update(data);
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            ;
         }
     }
 }

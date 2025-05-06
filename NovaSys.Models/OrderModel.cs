@@ -12,13 +12,18 @@ namespace prueba_tec.NovaSys.Models
 
         public DateTime created { get; set; }
 
-        public string state { get; set; }
-
         [Column("clinet_id")]
         public int client { get; set; }
 
         [ForeignKey("client")]
         public ClientModel clientId { get; set; }
+
+        public int state { get; set; }
+
+        [ForeignKey("state")]
+        public StatesModel orderState { get; set; }
+
+        public List<ProductOrderModel> Products { get; set; }
         
     }
 }

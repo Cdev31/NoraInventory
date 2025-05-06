@@ -9,14 +9,17 @@ namespace prueba_tec.NovaSys.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        
+
         public string firstname { get; set; }
 
         public string surname { get; set; }
 
         public string email { get; set; }
 
-        public string state { get; set; }
+        public int state { get; set; }
+
+        [ForeignKey("state")]
+        public StatesModel clientState { get; set; }
 
     }
 }

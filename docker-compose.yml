@@ -3,7 +3,7 @@ version: '3'
 services:
    db: 
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: inventoryDB
+    container_name: inventoryContainer
     restart: always
     ports:
      - "1443:1433"

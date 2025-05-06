@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace prueba_tec.NovaSys.Models
 {
     [Table("product_order")]
-    public class ProductOderModel
+    public class ProductOrderModel
     {
         [Key]
         [Column("id")]
         public int Id { get; set; }
 
         [Column("order_id")]
-        public int order { get; set;}
+        public int order { get; set; }
 
         [ForeignKey("order")]
         public OrderModel orderId { get; set; }
@@ -21,6 +21,5 @@ namespace prueba_tec.NovaSys.Models
 
         [ForeignKey("product")]
         public ProductModel productID { get; set; }
-
     }
 }
