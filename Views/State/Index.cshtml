@@ -1,0 +1,24 @@
+@model IEnumerable<prueba_tec.NovaSys.DTOs.FindStatesOutputDTOs>
+
+<div class="flex flex-col gap-1">
+    <h2 class="text-center text-3xl font-bold text-blue-800" >Estados del sistema: </h2>
+    <ul>
+        @if( Model != null){
+            @foreach( var state in Model ){
+            <li class="flex flex-col gap-2 font-semibold">
+                <p class="text-normal flex flex-row gap-1">
+                    <span>Nombre del estado:</span>
+                    <span>Modulo perteneciente: </span>
+                </p>
+                <p class="text-normal flex flex-row gap-1">
+                    <span>@state.stateName</span>
+                    <span>@state.moduleName</span>
+                </p>
+            </li>
+        }
+        }
+        else {
+            <h2 class="text-2xl text-orange-600 font-bold">No existen aun estados</h2>
+        }
+    </ul>
+</d>

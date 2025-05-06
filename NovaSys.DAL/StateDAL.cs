@@ -43,6 +43,13 @@ namespace prueba_tec.NovaSys.DAL
             }
         }
 
+        public async Task<StatesModel> findById(int id)
+        {
+           StatesModel state = await _dbContext.StateEN.FirstOrDefaultAsync( s => s.Id == id);
+
+           return ( state == null ) ? new StatesModel() : state;
+        }
+
         public async Task<bool> update(StatesModel data)
         {
             try

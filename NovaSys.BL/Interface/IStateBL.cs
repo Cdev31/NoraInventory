@@ -11,5 +11,7 @@ namespace prueba_tec.NovaSys.BL.Interface
 
         public Task<List<FindStatesOutputDTOs>> findAll();
 
+        public Task<FindStatesOutputDTOs> findById( int id );
+
     }
 }

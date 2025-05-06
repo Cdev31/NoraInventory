@@ -48,6 +48,20 @@ namespace prueba_tec.NovaSys.BL
             return _states;
         }
 
+        public async Task<FindStatesOutputDTOs> findById(int id)
+        {
+            StatesModel state = await _stateDAL.findById( id );
+
+            FindStatesOutputDTOs _state = new FindStatesOutputDTOs()
+            {
+                Id = state.Id,
+                stateName = state.stateName,
+                moduleName = state.moduleName
+            };
+
+            return _state;
+        }
+
         public async Task<bool> update(UpdateStateDTOs data)
         {
             StatesModel state = new StatesModel()
