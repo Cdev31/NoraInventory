@@ -1,11 +1,11 @@
-using prueba_tec.NovaSys.DAL;
+using prueba_tec.NovaSys.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRouting( options => options.LowercaseUrls = true);
-
+builder.Services.AddNovaInventoryDependencies( builder.Configuration );
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -18,7 +18,7 @@ namespace prueba_tec.NovaSys.DTOs
         public int stock { get; set; }
 
         [Required(ErrorMessage = "state es requerido ")]
-        public string state { get; set; }
+        public int state { get; set; }
 
         [Required(ErrorMessage = "stock es requerido ")]
         [MaxLength(200)]
@@ -40,6 +40,9 @@ namespace prueba_tec.NovaSys.DTOs
 
     public class UpdateProductDTOs
     {
+        [Required(ErrorMessage = "Id es requerido")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = " nombre es requerido ")]
         [MaxLength(40)]
         public string name { get; set; }
@@ -49,7 +52,7 @@ namespace prueba_tec.NovaSys.DTOs
         public decimal price { get; set; }
 
         [Required(ErrorMessage = "state es requerido ")]
-        public string state { get; set; }
+        public int state { get; set; }
 
         [Required(ErrorMessage = "stock es requerido ")]
         [MaxLength(200)]

@@ -19,6 +19,8 @@ namespace prueba_tec.NovaSys.Models
         [Column("product_id")]
         public int product { get; set; }
 
+        public int quantity { get; set; }
+
         [ForeignKey("product")]
         public ProductModel productID { get; set; }
     }

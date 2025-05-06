@@ -15,6 +15,9 @@ namespace prueba_tec.NovaSys.DTOs
 
     public class UpdateStateDTOs
     {
+         [Required(ErrorMessage = "Id es requerido ")]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "stateName es requerido ")]
         [MaxLength(20)]
         public string stateName { get; set; }

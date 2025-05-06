@@ -50,11 +50,13 @@ namespace prueba_tec.NovaSys.DAL
             }
         }
 
-        public async Task<List<ProductModel>> findAll(string state)
+        public async Task<List<ProductModel>> findAll(int state)
         {
             try
             {
-                List<ProductModel> products = await _dbContext.ProductEN.ToListAsync();
+                List<ProductModel> products = await _dbContext.ProductEN
+                                                   .Where( p => p.state == state )
+                                                   .ToListAsync();
                 return products;
             }
             catch (SqlException ex)

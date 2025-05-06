@@ -6,7 +6,7 @@ namespace prueba_tec.NovaSys.BL.Interface
     {
         public Task<bool> create(CreateProductDTOs data);
 
-        public List<Task<FindProductOuputDTOs>> findAll(FindAllByStateDTOs state);
+        public Task<List<FindProductOuputDTOs>> findAll(FindAllByStateDTOs state);
 
         public Task<bool> update(UpdateProductDTOs data);
 

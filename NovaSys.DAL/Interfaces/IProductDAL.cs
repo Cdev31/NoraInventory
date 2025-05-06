@@ -5,7 +5,7 @@ namespace prueba_tec.NovaSys.DAL.Interfaces
 {
     public interface IProductDAL
     {
-        public Task<List<ProductModel>> findAll(string state);
+        public Task<List<ProductModel>> findAll(int state);
 
          public Task<ProductModel> findById( int Id );
 

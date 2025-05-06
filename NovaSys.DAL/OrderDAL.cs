@@ -36,7 +36,8 @@ namespace prueba_tec.NovaSys.DAL
                         var product = new ProductOrderModel
                         {
                             product = p.Id,
-                            order = newOrder.Id
+                            order = newOrder.Id,
+                            quantity = p.quantity
                         };
 
                         await _dbContext.ProductOrderEN.AddAsync(product);
@@ -61,8 +62,9 @@ namespace prueba_tec.NovaSys.DAL
             try
             {
                 List<OrderModel> orders = await _dbContext.OrderEN
-                                          .Include( o => o.Products )
-                                          .Include( o => o.clientId )
+                                          .Include( po => po.Products )
+                                             .ThenInclude( p => p.productID )
+                                          .Include( po => po.clientId )
                                           .ToListAsync();
                 return orders;
             }

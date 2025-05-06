@@ -9,7 +9,7 @@ namespace prueba_tec.NovaSys.BL.Interface
 
         public Task<bool> update( UpdateStateDTOs data );
 
-        public List<Task<FindStatesOutputDTOs>> findAll();
+        public Task<List<FindStatesOutputDTOs>> findAll();
 
     }
 }

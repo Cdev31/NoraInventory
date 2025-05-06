@@ -7,7 +7,7 @@ namespace prueba_tec.NovaSys.BL.Interface
     {
         public Task<bool> create(CreateClientDTOs data);
 
-        public List<Task<FindClientOutputDTOs>> findAll();
+        public Task<List<FindClientOutputDTOs>> findAll();
 
         public Task<bool> update(UpdateClientDTOs data);
 

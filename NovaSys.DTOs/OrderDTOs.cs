@@ -12,13 +12,15 @@ namespace prueba_tec.NovaSys.DTOs
         public int state { get; set; }
 
         [Required( ErrorMessage = "products son requeridos")]
-        public List<ProductModel> products { get; set; }
+        public List<ProductOrderModel> products { get; set; }
     }
+
 
     public class FindOutputOrderDTOs
     {
-        public int client { get; set; }
-        public int state { get; set; }
+        public int Id { get; set;}
+        public ClientModel client { get; set; }
+        public string state { get; set; }
         public List<ProductModel> products { get; set; }
     }
 }

@@ -7,6 +7,6 @@ namespace prueba_tec.NovaSys.BL.Interface
     {
         public Task<bool> create( CreateOrderDTOs data );
 
-        public List<Task<FindOutputOrderDTOs>> findAll();
+        public Task<List<FindOutputOrderDTOs>> findAll();
     }
 }

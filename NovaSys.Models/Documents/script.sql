@@ -43,6 +43,7 @@ CREATE TABLE product_order(
     id INT IDENTITY(1,1) PRIMARY KEY,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
+    quantity INT NOT NULL,
     CONSTRAINT FK_PRODUCT_ORDER FOREIGN KEY ( order_id ) REFERENCES orders(id),
     CONSTRAINT FK_ORDER_PRODUCT FOREIGN KEY ( product_id ) REFERENCES product(id)
 );
